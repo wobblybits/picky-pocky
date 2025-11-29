@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rcade/plugin-input-classic':
-        specifier: ^0.1.0
-        version: 0.1.0(typescript@5.9.3)
+        specifier: ^0.1.1
+        version: 0.1.1(typescript@5.9.3)
       p5:
         specifier: ^2.1.1
         version: 2.1.1
@@ -190,13 +190,13 @@ packages:
   '@japont/unicode-range@1.0.0':
     resolution: {integrity: sha512-BckHvA2XdjRBVAWe2uceNuRf78lBeI28kyWEbfr/Q2pE17POkwuZ6WWY/UMv8FL9iBxhW4xfDoNLM9UVZaTeUQ==}
 
-  '@rcade/plugin-input-classic@0.1.0':
-    resolution: {integrity: sha512-QAvd8C+qZSzWS8NGanR/1uOMvbNiXYgdBYg3bgALCR31g7blvxTblHC902BFZbE6F2T/3JLrJW8kMKCvB1By5g==}
+  '@rcade/plugin-input-classic@0.1.1':
+    resolution: {integrity: sha512-OnmrQQsTfjcI0sN/0qVgWLpEE/IvXRvSwwluo+RhBRX1ywf0zPBeWiYY1FRfy+Axg233oMAyFycrWkSC9weNRw==}
     peerDependencies:
       typescript: ^5.0.0
 
-  '@rcade/sdk@0.1.1':
-    resolution: {integrity: sha512-73a8RZqt2vnKqQX5313u0R9M2ouUIAQEhTLITH2qLtXn61b115wv44vo/s9jnKjk42Uee4pUSwTWYjgEbtCNCA==}
+  '@rcade/sdk@0.1.2':
+    resolution: {integrity: sha512-kIy/OswLO3TEWwzKodYeeN/px8/VbAa/HWJ/OuS2lxWvSXVFX0yain30iKyIdGVPEcIhD3MWTPJs7F9Addywjg==}
     peerDependencies:
       typescript: ^5.0.0
 
@@ -1261,12 +1261,12 @@ snapshots:
 
   '@japont/unicode-range@1.0.0': {}
 
-  '@rcade/plugin-input-classic@0.1.0(typescript@5.9.3)':
+  '@rcade/plugin-input-classic@0.1.1(typescript@5.9.3)':
     dependencies:
-      '@rcade/sdk': 0.1.1(typescript@5.9.3)
+      '@rcade/sdk': 0.1.2(typescript@5.9.3)
       typescript: 5.9.3
 
-  '@rcade/sdk@0.1.1(typescript@5.9.3)':
+  '@rcade/sdk@0.1.2(typescript@5.9.3)':
     dependencies:
       typescript: 5.9.3
 

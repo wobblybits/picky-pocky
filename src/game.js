@@ -21,10 +21,10 @@ export default class PickyPocky {
       // example:
       const customState = {
         finger: {
-          x: -100,
-          y: canvas.height - 200,
-          width: 400,
-          height: 400,
+          x: -40, //-100,
+          y: canvas.height - 80, //200,
+          width: 160, //400,
+          height: 160, //400,
           angle: 0,
           isTriggered: false,
         },
@@ -68,12 +68,18 @@ export default class PickyPocky {
             //       "left " + Math.abs(state.width/2 - 100 - (state.finger.x + 48 + (state.finger.height - 150) * Math.sin(state.finger.angle))),
             //       "right " + Math.abs(state.width/2 + 110 - (state.finger.x + 48 + (state.finger.height - 150) * Math.sin(state.finger.angle)))
             //   );
-              if (Math.abs(state.width/2 - 100 - (state.finger.x + 48 + (state.finger.height - 150) * Math.sin(state.finger.angle))) < 16) {
-                  state.hitLeft = true;
-              }
-              if (Math.abs(state.width/2 + 110 - (state.finger.x + 48 + (state.finger.height - 150) * Math.sin(state.finger.angle))) < 16) {
-                  state.hitRight = true;
-              }
+            //   if (Math.abs(state.width/2 - 100 - (state.finger.x + 48 + (state.finger.height - 150) * Math.sin(state.finger.angle))) < 16) {
+            //       state.hitLeft = true;
+            //   }
+            //   if (Math.abs(state.width/2 + 110 - (state.finger.x + 48 + (state.finger.height - 150) * Math.sin(state.finger.angle))) < 16) {
+            //       state.hitRight = true;
+            //   }
+            if (Math.abs(state.width/2 - 40 - (state.finger.x + 19 + (state.finger.height - 60) * Math.sin(state.finger.angle))) < 16) {
+                state.hitLeft = true;
+            }
+            if (Math.abs(state.width/2 + 44 - (state.finger.x + 19 + (state.finger.height - 60) * Math.sin(state.finger.angle))) < 16) {
+                state.hitRight = true;
+            }
             }
             state.finger.isTriggered = true;
         }
@@ -172,30 +178,51 @@ export default class PickyPocky {
       p5.pop();
       
       //eyeball expression
-      if (state.finger.isTriggered) {
-          p5.push();
-              p5.fill(0);
-              p5.rect(
-                  128 + 64 * state.finger.x/state.width - 96 * (!state.hitLeft && !state.hitRight ? .33 : 1) * (.75 - state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0003 * Math.cos(.045 * (currentTime - state.startTime)) * (currentTime - state.startTime)) : 0), 
-                  128 + 16 * (.5 - state.finger.x/state.width) - 64 * (!state.hitLeft && !state.hitRight ? -.5 : 1) * (.75 - state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0007 * Math.sin(.04 * (performance.now() - state.startTime)) * (currentTime - state.startTime)) : 0),
-                  32 + (state.goodShot ? -Math.sin(.004 * (currentTime - state.startTime)) : 0), 
-                  32);
-              p5.rect(
-                  state.width - 128 - 64 * (1 - state.finger.x/state.width) + 96 * (.75 - (!state.hitLeft && !state.hitRight ? 1.33 : 1) * state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0003 * Math.cos(.04 * (performance.now() - state.startTime)) * (performance.now() - state.startTime)) : 0), 
-                  128 + 16 * state.finger.x/state.width - 64 * (.75 - (!state.hitLeft && !state.hitRight ? .5 : 1) * state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0007 * Math.sin(.04 *  (performance.now() - state.startTime)) * (performance.now() - state.startTime)): 0),
-                  32, 32);
-          p5.pop();		
-      }
-      else {
-          p5.push();
-              p5.fill(0);
-              p5.rect(128 + 64 * state.finger.x/state.width, 128 + 16 * (.5 - state.finger.x/state.width),32,32);
-              p5.rect(state.width - 128 - 64 * (1 - state.finger.x/state.width),128 + 16 * state.finger.x/state.width,32,32);
-          p5.pop();	
-      }
+    //   if (state.finger.isTriggered) {
+    //       p5.push();
+    //           p5.fill(0);
+    //           p5.rect(
+    //               128 + 64 * state.finger.x/state.width - 96 * (!state.hitLeft && !state.hitRight ? .33 : 1) * (.75 - state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0003 * Math.cos(.045 * (currentTime - state.startTime)) * (currentTime - state.startTime)) : 0), 
+    //               128 + 16 * (.5 - state.finger.x/state.width) - 64 * (!state.hitLeft && !state.hitRight ? -.5 : 1) * (.75 - state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0007 * Math.sin(.04 * (performance.now() - state.startTime)) * (currentTime - state.startTime)) : 0),
+    //               32 + (state.goodShot ? -Math.sin(.004 * (currentTime - state.startTime)) : 0), 
+    //               32);
+    //           p5.rect(
+    //               state.width - 128 - 64 * (1 - state.finger.x/state.width) + 96 * (.75 - (!state.hitLeft && !state.hitRight ? 1.33 : 1) * state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0003 * Math.cos(.04 * (performance.now() - state.startTime)) * (performance.now() - state.startTime)) : 0), 
+    //               128 + 16 * state.finger.x/state.width - 64 * (.75 - (!state.hitLeft && !state.hitRight ? .5 : 1) * state.finger.y/state.height) + (state.goodShot ? 24 * Math.sin(.0007 * Math.sin(.04 *  (performance.now() - state.startTime)) * (performance.now() - state.startTime)): 0),
+    //               32, 32);
+    //       p5.pop();		
+    //   }
+    //   else {
+    //       p5.push();
+    //           p5.fill(0);
+    //           p5.rect(128 + 64 * state.finger.x/state.width, 128 + 16 * (.5 - state.finger.x/state.width),32,32);
+    //           p5.rect(state.width - 128 - 64 * (1 - state.finger.x/state.width),128 + 16 * state.finger.x/state.width,32,32);
+    //       p5.pop();	
+    //   }
+    if (state.finger.isTriggered) {
+        p5.push();
+            p5.fill(0);
+            p5.rect(
+                52 + 25 * state.finger.x/state.width - 38.4 * (!state.hitLeft && !state.hitRight ? .33 : 1) * (.75 - state.finger.y/state.height) + (state.goodShot ? 10 * Math.sin(.0003 * Math.cos(.045 * (currentTime - state.startTime)) * (currentTime - state.startTime)) : 0), 
+                52 + 6.4 * (.5 - state.finger.x/state.width) - 25.6 * (!state.hitLeft && !state.hitRight ? -.5 : 1) * (.75 - state.finger.y/state.height) + (state.goodShot ? 10 * Math.sin(.0007 * Math.sin(.04 * (performance.now() - state.startTime)) * (currentTime - state.startTime)) : 0),
+                12.3 + (state.goodShot ? -Math.sin(.004 * (currentTime - state.startTime)) : 0), 
+                12.3);
+            p5.rect(
+                state.width - 52 - 25.6 * (1 - state.finger.x/state.width) + 38.4 * (.75 - (!state.hitLeft && !state.hitRight ? 1.33 : 1) * state.finger.y/state.height) + (state.goodShot ? 10 * Math.sin(.0003 * Math.cos(.04 * (performance.now() - state.startTime)) * (performance.now() - state.startTime)) : 0), 
+                52 + 6.4 * state.finger.x/state.width - 25.6 * (.75 - (!state.hitLeft && !state.hitRight ? .5 : 1) * state.finger.y/state.height) + (state.goodShot ? 10 * Math.sin(.0007 * Math.sin(.04 *  (performance.now() - state.startTime)) * (performance.now() - state.startTime)): 0),
+                12.3, 12.3);
+        p5.pop();		
+    }
+    else {
+        p5.push();
+            p5.fill(0);
+            p5.rect(52 + 25.6 * state.finger.x/state.width, 52 + 6.4 * (.5 - state.finger.x/state.width),12.3,12.3);
+            p5.rect(state.width - 52 - 25.6 * (1 - state.finger.x/state.width), 52 + 6.4 * state.finger.x/state.width,12.3,12.3);
+        p5.pop();	
+    }
       
       if (state.goodShot) {
-          state.noseShift = Math.max(state.noseShift - .1, -16);
+          state.noseShift = Math.max(state.noseShift - .1, -6.4);
           state.finger.y -= .1;
       }
       

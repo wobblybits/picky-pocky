@@ -8,16 +8,30 @@ p5.disableFriendlyErrors = true
 const libs = {}
 const assets = {}
 
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'ArrowUp') { // 38 is the keyCode for the up arrow key
+    game.input.upHasBeenPressed = true;
+  }
+});
+
 const game = new PickyPocky({
   libs,
   input: {
-    isPressedUp: () => PLAYER_1.DPAD.up,
+    isPressedUp: () => {
+      // Workaround until plugin works
+      if (game.input.upHasBeenPressed) {
+        game.input.upHasBeenPressed = false;
+        return true;
+      }
+      return false;
+      // return PLAYER_1.DPAD.up
+    },
   },
   assets,
 })
 
-const CANVAS_WIDTH = 800
-const CANVAS_HEIGHT = 600
+const CANVAS_WIDTH = 320
+const CANVAS_HEIGHT = 240
 
 const assetManifest = {
   'face.png': '/face.png',
