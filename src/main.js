@@ -30,8 +30,8 @@ const game = new PickyPocky({
   assets,
 })
 
-const CANVAS_WIDTH = 320
-const CANVAS_HEIGHT = 240
+const CANVAS_WIDTH = 800
+const CANVAS_HEIGHT = 600
 
 const assetManifest = {
   'face.png': '/face.png',
