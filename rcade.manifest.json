@@ -1,0 +1,15 @@
+{
+  "name": "picky-pocky",
+  "display_name": "Picky Pocky",
+  "description": "Pick your heart out!",
+  "visibility": "public",
+  "authors": {
+    "display_name": "Temp"
+  },
+  "dependencies": [
+    {
+      "name": "@rcade/input-classic",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+    "name": "picky-pocky",
+    "private": false,
+    "version": "1.0.0",
+    "description": "Pick your heart out!",
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite dev"
+    },
+    "devDependencies": {
+        "vite": "^7.2.4"
+    },
+    "dependencies": {
+        "@rcade/plugin-input-classic": "^0.1.0",
+        "p5": "^2.1.1",
+        "p5js": "^1.2.18"
+    }
+}
