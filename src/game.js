@@ -41,6 +41,7 @@ export default class PickyPocky {
         hitRight: false,
         goodShot: false,
         shootSpeed: 18,
+        willReset: false,
       };
   
       // leave this - merges default state with your state
@@ -76,6 +77,15 @@ export default class PickyPocky {
               }
             }
             state.finger.isTriggered = true;
+            if (!state.willReset) {
+                state.willReset = true;
+                this.mirco.wins += state.hitLeft || state.hitRight;
+                this.mirco.losses += !state.hitLeft && !state.hitRight;
+                this.mirco.round++;
+                window.setTimeout(() => {
+                    this.restart();
+                }, 1000);
+            }
         }
         
         if (state.finger.isTriggered) {
@@ -114,6 +124,7 @@ export default class PickyPocky {
       const currentTime = performance.now();
       
       p5.background(0);
+
       
       p5.push();
           if (state.finger.isTriggered) {
@@ -211,6 +222,25 @@ export default class PickyPocky {
           );
         }
       }
+    }
+
+    restart() {
+        this.state.finger = {
+            x: -100,
+            y: this.state.height - 200,
+            width: 400,
+            height: 400,
+            angle: 0,
+            isTriggered: false,
+          };
+        this.state.noseShift = 0;
+        this.state.hitLeft = false;
+        this.state.hitRight = false;
+        this.state.goodShot = false;
+        this.state.speed = this.mirco.wins + 1;
+        this.state.shootSpeed = 18;
+        this.state.message = "PICKY POCKY";
+        this.state.willReset = false;
     }
   
     /** return true if game is won, false if lost */
