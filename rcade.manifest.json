@@ -4,12 +4,7 @@
   "description": "Pick your heart out!",
   "visibility": "public",
   "authors": {
-    "display_name": "Temp"
-  },
-  "dependencies": [
-    {
-      "name": "@rcade/input-classic",
-      "version": "1.0.0"
-    }
-  ]
+    "display_name": "David Allen Feil",
+    "recurse_id": 6847
+  }
 }
